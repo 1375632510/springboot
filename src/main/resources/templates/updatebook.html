@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Title</title>
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+<div class="container">
+
+    <div class="row clearfix">
+        <div class="col-md-12 cloumn">
+            <div class="page-header">
+                <h1>
+                    <small>修改书籍</small>
+                </h1>
+            </div>
+        </div>
+
+    </div>
+
+    <form th:action="@{/updatebook}" method="post">
+        <!-- id没有传入 -->
+        <!-- id传入隐藏域 -->
+        <input type="hidden" name="bookId" th:value="${book.getBookId()}">
+        书籍名称：<input type="text" name="bookName" th:value="${book.getBookName()}" required><br><br><br>
+        书籍数量：<input type="text" name="bookCounts" th:value="${book.getBookCounts()}" required><br><br><br>
+        书籍详情：<input type="text" name="detail" th:value="${book.getDetail()}" required><br><br><br>
+        <input type="submit" value="修改">
+    </form>
+
+</div>
+
+</body>
+</html>
